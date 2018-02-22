@@ -11,4 +11,9 @@ class NormalizerTest extends TestCase
     {
         $this->assertSame(3.24, Normalizer::percentage('3,24%')->toFloat());
     }
+
+    public function testPolishCurrencyIsNormalized()
+    {
+        $this->assertSame(12345.67, Normalizer::polishcurrency('12345 zł 67 gr')->toFloat());
+    }
 }
